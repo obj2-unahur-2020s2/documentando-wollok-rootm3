@@ -2,25 +2,25 @@ import barrio.*
 import elementos.*
 
 describe "Plagas" {
-	const hogarLimpio = new Hogar(nivelMugre = 20, confort = 50)
-	const hogarSucio = new Hogar(nivelMugre = 50, confort = 50)
-	const huerta = new Huerta(capacidadProduccion = 1000)
-	const morris = new Barrio(elementos = [hogarLimpio, hogarSucio, huerta])
+	const hogarLimpio = new Hogar(nivelMugre = 20, confort = 50) //hogar
+	const hogarSucio = new Hogar(nivelMugre = 50, confort = 50) //hogar
+	const huerta = new Huerta(capacidadProduccion = 1000) //huerta
+	const morris = new Barrio(elementos = [hogarLimpio, hogarSucio, huerta]) //huerta|hogar
 	
 	fixture {	
 		INTA.produccionMinima(900)
 	}
 	
 	test "hogar" {
-		assert.that(hogarLimpio.esBueno())
-		assert.notThat(hogarSucio.esBueno())
+		assert.that(hogarLimpio.esBueno()) //booleano
+		assert.notThat(hogarSucio.esBueno()) //booleano
 	}	
 	
 	test "huerta" {
-		assert.that(huerta.esBueno())
+		assert.that(huerta.esBueno()) //booleano
 	}
 	
 	test "barrio" {
-		assert.that(morris.esCopado())
+		assert.that(morris.esCopado()) //booleano
 	}
 }
